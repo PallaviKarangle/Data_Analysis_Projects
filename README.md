@@ -56,3 +56,21 @@ B. Product Profitability Analysis
 # Conclusion:
 This Power BI dashboard helps Amazon stakeholders make data-driven decisions by analyzing sales trends, regional performance, and customer profitability. 
 It provides a comprehensive view of global sales performance and helps in identifying opportunities for business growth.
+
+
+# COVID-19 Data Analysis with SQL
+This project involves analyzing COVID-19 data using SQL Server, focusing on key metrics like total cases, deaths, infection rates, and vaccinations. The queries perform data cleaning, aggregations, and trend analysis to uncover insights.
+
+# Key SQL Operations & Insights
+* Data Exploration
+  1.Fetching raw data from CovidDeaths and CovidVaccinations tables.
+  2.Identifying countries with the highest infection and death rates.
+* Statistical Analysis
+  1.Total Cases vs. Total Deaths – Evaluating fatality rates for each country.
+  2.Cases vs. Population – Measuring the percentage of population infected.
+  3.Global Trends – Summarizing new cases, deaths, and mortality rates over time.
+* Data Transformation & Advanced SQL
+  1.Joins – Merging vaccination and case data for deeper insights.
+  2.Window Functions – Calculating rolling totals for vaccinations.
+  3.Common Table Expressions (CTEs) – Structuring data for better readability.
+  4.Views & Temporary Tables – Creating reusable datasets for visualization.
