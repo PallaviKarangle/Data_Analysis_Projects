@@ -74,3 +74,34 @@ This project involves analyzing COVID-19 data using SQL Server, focusing on key 
   2.Window Functions – Calculating rolling totals for vaccinations.
   3.Common Table Expressions (CTEs) – Structuring data for better readability.
   4.Views & Temporary Tables – Creating reusable datasets for visualization.
+
+# Bike Sales Dashboard - Excel Analysis
+
+* Introduction
+   This project presents an interactive Bike Sales Dashboard built using Microsoft Excel. The dataset includes customer demographics, financial details, and bike 
+   purchase records. The dashboard provides insights into buyer behavior using Pivot Tables, Charts, and Slicers for enhanced visualization.
+
+* Key Features & Steps Followed
+1. Data Cleaning & Preparation
+    *Removed duplicate records to ensure data accuracy.
+    *Segmented customers into three age groups:
+        Adolescent
+        Middle Age
+        Old
+    *Sorted and filtered data based on relevant attributes.
+
+2. Data Transformation & Analysis
+   *Created a Pivot Table summarizing key sales insights based on:
+       Marital Status, Gender, Income, Children, Occupation, Cars, and Commute Distance
+       Bike purchase trends across different regions
+   *Segmented buyers based on whether they purchased a bike or not.
+
+3. Data Visualization & Dashboard Creation
+   *Designed various charts to visualize sales trends, including:
+       Line Charts (Bike purchases by demographic)
+       Column Charts (Income distribution across bike buyers)
+
+   *Implemented Slicers for interactive filtering by:
+       Region, Age Brackets, Gender, and Occupation
+
+   *Built a user-friendly dashboard to provide real-time insights.
