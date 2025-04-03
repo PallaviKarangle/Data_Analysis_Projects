@@ -82,7 +82,7 @@ This project involves analyzing COVID-19 data using SQL Server, focusing on key 
    purchase records. The dashboard provides insights into buyer behavior using Pivot Tables, Charts, and Slicers for enhanced visualization.
 
 * Key Features & Steps Followed
-  1. Data Cleaning & Preparation
+  1.Data Cleaning & Preparation
     * Removed duplicate records to ensure data accuracy.
     * Segmented customers into three age groups:
         * Adolescent
@@ -90,18 +90,16 @@ This project involves analyzing COVID-19 data using SQL Server, focusing on key 
         * Old
     * Sorted and filtered data based on relevant attributes.
 
-  2. Data Transformation & Analysis
+  2.Data Transformation & Analysis
     * Created a Pivot Table summarizing key sales insights based on:
        * Marital Status, Gender, Income, Children, Occupation, Cars, and Commute Distance
        * Bike purchase trends across different regions
     * Segmented buyers based on whether they purchased a bike or not.
 
-  3. Data Visualization & Dashboard Creation
+  3.Data Visualization & Dashboard Creation
     * Designed various charts to visualize sales trends, including:
        * Line Charts (Bike purchases by demographic)
        * Column Charts (Income distribution across bike buyers)
-
     * Implemented Slicers for interactive filtering by:
        * Region, Age Brackets, Gender, and Occupation
-
     * Built a user-friendly dashboard to provide real-time insights.
