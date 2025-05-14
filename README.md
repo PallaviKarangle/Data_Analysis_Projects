@@ -110,6 +110,7 @@ This project involves analyzing COVID-19 data using SQL Server, focusing on key 
 This project presents an interactive HR Analytics Dashboard built using Power BI, designed to help Human Resources teams gain deeper insights into employee attrition trends and patterns.
 
 * Key Features & Implementation:
+  
 1.Data Preparation with Power Query:
    * Removed duplicate values to ensure data quality and accuracy.
    * Used conditional columns to derive key metrics, such as Attrition Count.
