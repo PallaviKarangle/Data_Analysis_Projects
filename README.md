@@ -111,25 +111,26 @@ This project presents an interactive HR Analytics Dashboard built using Power BI
 
 * Key Features & Implementation:
   
-1.Data Preparation with Power Query:
+  1.Data Preparation with Power Query:
    * Removed duplicate values to ensure data quality and accuracy.
    * Used conditional columns to derive key metrics, such as Attrition Count.
 
-2.DAX Measures Created:
+  2.DAX Measures Created:
    * Attrition Rate = (Attrition Count / Total Employees) * 100
    * Additional calculated measures to dynamically display KPIs like average age, salary, and tenure.
 
-3.Interactive Visualizations:
+  3.Interactive Visualizations:
    * Attrition by Department, Gender, and Job Role
    * Attrition by Education, Age Group, and Salary Slab
    * Job Satisfaction-Based Attrition Table
    * Tenure-Based Attrition Line Chart
 
-4.User-Friendly Insights:
+  4.User-Friendly Insights:
    * Easy-to-understand visualizations to identify high attrition segments.
    * Helps HR quickly pinpoint problem areas like specific departments, salary ranges, or job roles with higher attrition.
 
-*  Tools Used
+ * Tools Used :
+   
    * Power BI Desktop
    * Power Query Editor
    * DAX (Data Analysis Expressions)
