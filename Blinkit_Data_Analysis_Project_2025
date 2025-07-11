@@ -1,0 +1,102 @@
+# Cleaning data and finding Insights Using MYSQL
+use BlinkItDB;
+-- Retrieving data from table
+Select * from BlinkIt_data;
+-- Total count of rows in table
+Select count(*) from BlinkIt_data;
+--Cleaning Data
+--Standardized column values by converting text to Proper Case for readability and consistency.
+Update BlinkIt_data
+Set Item_Fat_Content = 
+case when Item_Fat_Content in ('LF','low fat') then 'Low Fat'
+     when Item_Fat_Content = 'reg' then 'Regular'
+	 else Item_Fat_Content
+end;
+
+-- KPI Requirements
+
+--1.Total Sales
+Select CONCAT(CAST(SUM(Sales)/1000000 AS DECIMAL(10,2)), ' M') as Total_sales_in_millions from BlinkIt_data;
+--2.Average Sales
+Select Cast(Avg(Sales) as decimal(10,1)) as Avg_Sales from BlinkIt_data;
+--3.Total Number of items sold
+Select count(Item_Type) as Total_items_sold from BlinkIt_data;
+--4.Average Rating
+Select Cast(Avg(Rating) as decimal(10,2)) as Avg_Rating from BlinkIt_data;
+
+--Granular Requirements
+
+-- 1.Total Sales,Average Sales,Average Rating and Count of items  by Fat Content 
+Select Item_Fat_Content, 
+    Concat(cast(sum(Sales)/1000000 as decimal(10,2)),'M') as Total_Sales_by_Fat_Content,
+    Cast(Avg(Sales) as decimal(10,1)) as Avg_Sales,
+    count(Item_Type) as Total_items_sold,
+    Cast(Avg(Rating) as decimal(10,2)) as Avg_Rating
+from BlinkIt_data
+--where Outlet_Establishment_Year  = 2022
+Group by Item_Fat_Content
+Order by Total_Sales_by_Fat_Content desc
+
+-- 2.Total Sales,Average Sales,Average Rating and Count of items  by Item Type
+Select Item_Type, 
+    (cast(sum(Sales)/1000 as decimal(10,2))) as Total_Sales_by_Fat_Content,
+    Cast(Avg(Sales) as decimal(10,1)) as Avg_Sales,
+    count(Item_Type) as Total_items_sold,
+    Cast(Avg(Rating) as decimal(10,2)) as Avg_Rating
+from BlinkIt_data
+--where Outlet_Establishment_Year  = 2022
+Group by Item_Type
+Order by Total_Sales_by_Fat_Content desc
+
+--Fat Content by Outlet for Total Sales
+Select Item_Fat_Content,Outlet_Location_type,(cast(sum(Sales)/1000 as decimal(10,2))) as Total_Sales_by_Outlet_Type from BlinkIt_data
+group by Outlet_Location_Type, Item_Fat_Content
+Order by Total_Sales_by_Outlet_Type
+
+--Converting columns into Rows using Pivot function
+
+Select Outlet_Location_Type,
+ISNULL ([Low Fat],0) as Low_Fat,
+ISNULL ([Regular],0) as Regular_Fat
+From
+(
+Select Outlet_Location_Type,Item_Fat_Content,Cast(Sum(Sales) as decimal(10,2)) as Total_Sales
+from BlinkIt_data
+Group by Outlet_Location_Type,Item_Fat_Content
+)as SourceTable 
+Pivot
+(
+Sum(Total_Sales)
+For Item_Fat_Content In ([Low Fat],[Regular])
+) as PivotTable
+Order by Outlet_Location_Type
+
+-- Total Sales by Outlet Establishment 
+Select Outlet_Establishment_Year,cast(sum(Sales) as decimal(10,2)) as Total_Sales_by_Outlet_Establishment from BlinkIt_data
+group by Outlet_Establishment_Year 
+Order by Outlet_Establishment_Year asc
+
+-- Percentage of sales by outlet size
+Select Outlet_Size,
+cast(sum(sales) as decimal(10,2)) as total_sales,
+cast((sum(sales)*100.0/sum(sum(Sales)) over()) as decimal(10,2)) as Sales_percentage
+from BlinkIt_data
+group by outlet_size
+order by Total_sales desc
+
+-- Sales by Outlet Location
+
+Select Outlet_Location_Type, cast(Sum(Sales) as decimal(10,2)) as Total_Sales
+from BlinkIt_data
+group by Outlet_Location_Type
+order by Total_Sales desc
+
+-- All metrices by outlet type
+Select Outlet_Type, 
+    cast(sum(Sales) as decimal(10,2)) as Total_Sales_by_Outlet_Type,
+    Cast(Avg(Sales) as decimal(10,1)) as Avg_Sales,
+    count(Item_Type) as Total_items_sold,
+    Cast(Avg(Rating) as decimal(10,2)) as Avg_Rating
+from BlinkIt_data
+Group by Outlet_Type
+Order by Total_Sales_by_Outlet_Type
