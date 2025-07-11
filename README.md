@@ -134,3 +134,80 @@ This project presents an interactive HR Analytics Dashboard built using Power BI
    * Power BI Desktop
    * Power Query Editor
    * DAX (Data Analysis Expressions)
+
+
+# Blinkit Sales Analysis Project 2025
+
+This project focuses on performing **sales analysis for Blinkit** using structured SQL queries. The goal is to uncover key insights from the sales data to help drive data-informed decisions related to item performance, outlet operations, customer preferences, and more.
+
+## 📊 Project Objectives
+
+* Clean and prepare the dataset for accurate analysis
+* Generate key performance indicators (KPIs)
+* Analyze trends and sales performance across different categories
+* Use advanced SQL operations like aggregation, filtering, grouping, and pivoting
+
+---
+
+## 🛠️ Tools & Technologies Used
+
+* **SQL Server / MySQL** for querying
+* **SSMS**for data analysis 
+* **Power BI** 
+
+---
+
+## 🧹 Data Cleaning
+
+* Standardized inconsistent values in `Item_Fat_Content` for uniformity using `UPDATE` statements:
+  * `'LF'`, `'low fat'` → `Low Fat`
+  * `'reg'` → `Regular`
+
+---
+
+## 📌 Key KPIs
+
+| Metric                     | SQL Logic Used                                  |
+|---------------------------|--------------------------------------------------|
+| **Total Sales**           | Aggregated with SUM and converted to millions   |
+| **Average Sales**         | Calculated using `AVG()`                        |
+| **Total Items Sold**      | Counted using `COUNT(Item_Type)`               |
+| **Average Rating**        | `AVG(Rating)` with formatting                   |
+
+---
+
+## 🔍 Granular Analysis
+
+### 1. **By Fat Content**
+* Total Sales, Average Sales, Rating, and Item Count grouped by `Item_Fat_Content`
+
+### 2. **By Item Type**
+* Category-wise performance breakdown: Sales, Ratings, and Count
+
+### 3. **By Outlet Location Type & Fat Content**
+* Sales analysis grouped by both `Item_Fat_Content` and `Outlet_Location_Type`
+
+### 4. **Pivot Analysis**
+* Transformed `Item_Fat_Content` into column values using `PIVOT` for comparative outlet location analysis
+
+---
+
+## 🏪 Outlet-Level Insights
+
+### 📅 Sales by Establishment Year
+* Sales trends over years using `Outlet_Establishment_Year`
+
+### 🏗️ Sales by Outlet Size
+* Total sales and their percentage contribution based on `Outlet_Size`
+
+### 🗺️ Sales by Location Type
+* Total revenue per `Outlet_Location_Type`
+
+### 🧾 Comprehensive Metrics by Outlet Type
+* Combined KPIs: Total Sales, Avg Sales, Ratings, Item Counts per `Outlet_Type`
+
+---
+
+
+
+
