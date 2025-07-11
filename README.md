@@ -152,7 +152,7 @@ This project focuses on performing **sales analysis for Blinkit** using structur
 ## 🛠️ Tools & Technologies Used
 
 * **SQL Server / MySQL** for querying
-* **SSMS**for data analysis 
+* **SSMS** for data analysis 
 * **Power BI** 
 
 ---
